@@ -4,6 +4,8 @@
 
 一款用于管理个人血压、血糖（暂未实现）、服药的Android应用。项目实际名称：`health-butler`，打包的Android应用安装后的名称：`健康管家`，Android应用标识符：`com.administrator.health-butler`
 
+安装包下载：https://gitee.com/lingyi2/health-butler-release-version/releases
+
 <img src="doc/首页.jpg" alt="首页" width="200"> <img src="doc/详情.jpg" alt="详情" width="200"> <img src="doc/我的.jpg" alt="我的" width="200"> <img src="doc/血压记录.jpg" alt="我的" width="200"> <img src="doc/用药管理.jpg" alt="我的" width="200">
 
 ## 技术栈
