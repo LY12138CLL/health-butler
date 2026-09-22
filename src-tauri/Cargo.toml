@@ -1,0 +1,49 @@
+[package]
+name = "health-butler"
+version = "0.1.0"
+description = "A Tauri App"
+authors = ["you"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "health_butler_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri-plugin-sql = { version = "2", features = ["sqlite"] }
+tauri-plugin-fs = "2"
+tauri-plugin-native-camera = "0.1.0"
+tauri-plugin-lingyi-toolbox = "0.1.0"
+base64 = "0.23.1"
+tauri-plugin-notifications = "0.4.6"
+rust_xlsxwriter = "0.99.1"
+calamine = "0.36.1"
+tauri-plugin-http = "2.6.1"
+
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+# 将代码生成单元数设为1，让LLVM进行更彻底的全局优化[reference:4]
+codegen-units = 1
+# 启用链接时优化（LTO），对整个程序进行整体优化[reference:5][reference:6]
+lto = true
+# 优化级别设为 's' 或 'z'，优先优化体积而非速度[reference:7][reference:8]
+opt-level = "s"
+# 使用 'abort' 策略处理panic，避免包含展开（unwind）代码，减小体积[reference:9][reference:10]
+panic = "abort"
+# 从最终二进制文件中剥离调试符号[reference:11][reference:12]
+strip = true
+# 增量编译可能会影响最终优化效果，在release配置中建议关闭[reference:13]
+incremental = false

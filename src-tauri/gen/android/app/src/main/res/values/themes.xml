@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.health_butler" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        
+        <!-- 状态栏颜色，引用colors.xml中的颜色 -->
+        <item name="android:statusBarColor">@android:color/white</item>
+        <!-- 状态栏文字/图标为黑色（API 23+） -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

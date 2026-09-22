@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - tauri-plugin-lingyi-toolbox@0.1.0

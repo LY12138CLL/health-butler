@@ -1,0 +1,52 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    "sql:default",
+    "sql:allow-execute",
+    "notifications:default",
+    "lingyi-toolbox:default",
+    "native-camera:allow-take-picture",
+    "fs:default",
+    "fs:allow-appconfig-read-recursive",
+    "fs:allow-appconfig-write-recursive",
+    {
+      "identifier": "fs:allow-write-file",
+      "allow": [{ "path": "/storage/emulated/0/Download/**" }]
+    },
+    "http:default",
+    {
+      "identifier": "http:default",
+      "allow": [{ "url": "https://gitee.com/*" }]
+    },
+
+    {
+      "identifier": "fs:allow-write-file",
+      "allow": [{ "path": "$APPDATA/avatar/**" }]
+    },
+    {
+      "identifier": "fs:allow-read-file",
+      "allow": [{ "path": "$APPDATA/avatar/**" }]
+    },
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [{ "path": "$APPDATA/avatar/**" }]
+    },
+    {
+      "identifier": "fs:allow-remove",
+      "allow": [{ "path": "$APPDATA/avatar/**" }]
+    },
+
+    {
+      "identifier": "fs:allow-exists",
+      "allow": [
+        { "path": "$APPDATA/avatar/**" },
+        { "path": "$RESOURCE/**" }
+      ]
+    }
+  ]
+}
